@@ -77,7 +77,11 @@ export function EditProviderDialog({
     >
       <div className="p-8">
         <div className="mb-6 flex items-center gap-3">
-          <span className="text-2xl">{meta.icon}</span>
+          {meta.id === "bankr" ? (
+  <img src="https://clawprowl.xyz/bankr/bankr.png" alt="Bankr" className="h-8 w-8" />
+) : (
+  <span className="text-2xl">{meta.icon}</span>
+)}
           <div>
             <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
               {t("settings.providers.editDialog.title")} — {providerId}
