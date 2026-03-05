@@ -24,7 +24,7 @@ export function AgentsPage() {
         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{t("agents.description")}</p>
       </div>
 
-      <div className="flex gap-6">
+      <div className="flex flex-col gap-6 sm:flex-row">
         <AgentListPanel />
 
         <div className="min-w-0 flex-1">
