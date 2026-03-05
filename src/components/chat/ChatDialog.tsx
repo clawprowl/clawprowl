@@ -201,7 +201,7 @@ export function ChatDialog() {
 
   return (
     <div
-      className={`absolute inset-x-0 bottom-0 z-30 mx-auto flex w-full max-w-2xl flex-col overflow-hidden rounded-t-xl border border-b-0 border-gray-200 bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-900 ${
+      className={`absolute inset-x-0 bottom-0 z-30 flex w-full flex-col overflow-hidden rounded-t-xl border border-b-0 border-gray-200 bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-900 sm:mx-auto sm:max-w-2xl ${
         dockExpanded ? "animate-slide-up" : "animate-slide-down"
       }`}
       style={{
