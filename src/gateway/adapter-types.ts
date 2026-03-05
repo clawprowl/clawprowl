@@ -1,5 +1,5 @@
-// Gateway Adapter 数据类型
-// 基于 ClawX 类型定义，去除 Electron IPC 依赖
+// Gateway Adapter data types
+// Based on ClawX type definitions, removing Electron IPC dependency
 
 export type ChannelType =
   | "whatsapp"
@@ -208,7 +208,7 @@ export interface SkillInstallResult {
   warnings?: string[];
 }
 
-// Streaming 事件类型（chat 事件的 payload 格式）
+// Streaming event types (chat event payload format)
 export type ChatStreamEvent =
   | { type: "stream.start"; runId: string; sessionKey?: string }
   | { type: "stream.delta"; runId: string; text: string }

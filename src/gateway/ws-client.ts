@@ -173,7 +173,7 @@ export class GatewayWsClient {
       return;
     }
 
-    // connect 响应（可能没有 id 匹配）
+    // connect response (may not have id match)
     if (frame.ok && (frame.payload as HelloOk)?.type === "hello-ok") {
       this.handleConnectSuccess(frame.payload as HelloOk);
     } else if (!frame.ok) {

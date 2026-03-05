@@ -1,7 +1,7 @@
-// Gateway WebSocket 协议类型定义
-// 基于 ClawProwl Gateway 源码（protocol v3）对齐
+// Gateway WebSocket protocol type definitions
+// Aligned with ClawProwl Gateway source (protocol v3)
 
-// --- 请求/响应帧 ---
+// --- Request/Response Frames ---
 
 export interface GatewayRequest {
   type: "req";
@@ -34,7 +34,7 @@ export interface GatewayEventFrame<T = unknown> {
 
 export type GatewayFrame = GatewayRequest | GatewayResponseFrame | GatewayEventFrame;
 
-// --- 认证 ---
+// --- Authentication ---
 
 export interface ConnectParams {
   minProtocol: number;
@@ -88,7 +88,7 @@ export interface HelloOk {
   policy?: Record<string, unknown>;
 }
 
-// --- Agent 事件 ---
+// --- Agent Events ---
 
 export type AgentStream = "lifecycle" | "tool" | "assistant" | "error";
 
@@ -101,7 +101,7 @@ export interface AgentEventPayload {
   sessionKey?: string;
 }
 
-// --- 可视化状态 ---
+// --- Visual State ---
 
 export type AgentVisualStatus =
   | "idle"
@@ -176,7 +176,7 @@ export interface EventHistoryItem {
   summary: string;
 }
 
-// --- Sub-Agent 轮询 ---
+// --- Sub-Agent Polling ---
 
 export interface SubAgentInfo {
   sessionKey: string;
@@ -192,7 +192,7 @@ export interface SessionSnapshot {
   fetchedAt: number;
 }
 
-// --- 全局指标 ---
+// --- Global Metrics ---
 
 export interface GlobalMetrics {
   activeAgents: number;
@@ -202,7 +202,7 @@ export interface GlobalMetrics {
   collaborationHeat: number;
 }
 
-// --- 连接状态 ---
+// --- Connection State ---
 
 export type ConnectionStatus =
   | "connecting"
@@ -211,7 +211,7 @@ export type ConnectionStatus =
   | "disconnected"
   | "error";
 
-// --- 配置感知 ---
+// --- Config Awareness ---
 
 export interface AgentToAgentConfig {
   enabled: boolean;
@@ -256,13 +256,13 @@ export interface OfficeStore {
   currentPage: PageId;
   chatDockHeight: number;
 
-  // 配置感知
+  // Config awareness
   maxSubAgents: number;
   agentToAgentConfig: AgentToAgentConfig;
 
-  // runId → agentId 映射
+  // runId → agentId mapping
   runIdMap: Map<string, string>;
-  // sessionKey → agentId[] 映射
+  // sessionKey → agentId[] mapping
   sessionKeyMap: Map<string, string[]>;
 
   // Agent CRUD
@@ -271,29 +271,29 @@ export interface OfficeStore {
   removeAgent: (id: string) => void;
   initAgents: (agents: AgentSummary[]) => void;
 
-  // Sub-Agent 管理
+  // Sub-Agent management
   addSubAgent: (parentId: string, info: SubAgentInfo) => void;
   removeSubAgent: (subAgentId: string) => void;
 
-  // 会议区位置管理
+  // Meeting zone position management
   moveToMeeting: (agentId: string, meetingPosition: { x: number; y: number }) => void;
   returnFromMeeting: (agentId: string) => void;
 
-  // 行走动画
+  // Walking animation
   startMovement: (agentId: string, toZone: AgentZone, targetPos?: { x: number; y: number }) => void;
   tickMovement: (agentId: string, deltaTime: number) => void;
   completeMovement: (agentId: string) => void;
 
-  // Agent 确认（unconfirmed → confirmed）
+  // Agent confirmation (unconfirmed → confirmed)
   confirmAgent: (agentId: string, role: "main" | "sub", parentId?: string) => void;
 
-  // 休息区预填充
+  // Lounge pre-fill
   prefillLoungePlaceholders: (count: number) => void;
 
-  // Sessions 轮询
+  // Sessions polling
   setSessionsSnapshot: (snapshot: SessionSnapshot) => void;
 
-  // 事件处理
+  // Event handling
   processAgentEvent: (event: AgentEventPayload) => void;
   initEventHistory: () => Promise<void>;
 
@@ -305,7 +305,7 @@ export interface OfficeStore {
   setTheme: (theme: ThemeMode) => void;
   setBloomEnabled: (enabled: boolean) => void;
 
-  // 配置感知
+  // Config awareness
   setMaxSubAgents: (n: number) => void;
   setAgentToAgentConfig: (config: AgentToAgentConfig) => void;
 
@@ -316,11 +316,11 @@ export interface OfficeStore {
   setCurrentPage: (page: PageId) => void;
   setChatDockHeight: (height: number) => void;
 
-  // 指标
+  // Metrics
   updateMetrics: () => void;
 }
 
-// --- 错误 ---
+// --- Errors ---
 
 export interface ErrorShape {
   code: string;
@@ -329,7 +329,7 @@ export interface ErrorShape {
   retryAfterMs?: number;
 }
 
-// --- RPC 数据 ---
+// --- RPC Data ---
 
 export interface AgentSummary {
   id: string;
