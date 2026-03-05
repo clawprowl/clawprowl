@@ -25,7 +25,7 @@ export function AgentListPanel() {
   });
 
   return (
-    <div className="flex w-72 shrink-0 flex-col rounded-2xl border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
+    <div className="flex w-full sm:w-72 shrink-0 flex-col rounded-2xl border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
       <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3 dark:border-gray-700">
         <div>
           <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
