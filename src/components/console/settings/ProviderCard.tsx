@@ -30,7 +30,7 @@ export function ProviderCard({ providerId, config, onEdit, onDelete }: ProviderC
 
   return (
     <div className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 dark:border-gray-600 dark:bg-gray-700/50">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3 min-w-0">
           {meta.id === "bankr" ? (
             <img src="https://docs.bankr.bot/img/logo.svg" alt="Bankr" className="h-6 w-6" title={meta.name} />
