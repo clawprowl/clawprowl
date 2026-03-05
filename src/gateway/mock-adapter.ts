@@ -739,14 +739,10 @@ export class MockAdapter implements GatewayAdapter {
       mainKey: "agent:main:main",
       scope: "global",
       agents: [
-        { id: "main", name: "main", default: true, identity: { name: "main", emoji: "m" } },
-        {
-          id: "ai-researcher",
-          name: "ResearchClaw",
-          identity: { name: "ResearchClaw", emoji: "🔬" },
-        },
-        { id: "coder", name: "CodeClaw", identity: { name: "CodeClaw", emoji: "💻" } },
-        { id: "ecommerce", name: "TradeClaw", identity: { name: "TradeClaw", emoji: "🛒" } },
+        { id: "main", name: "Prowl", default: true, identity: { name: "Prowl", emoji: "🐾" } },
+{ id: "ai-researcher", name: "0xDeployer", identity: { name: "0xDeployer", emoji: "🚀" } },
+{ id: "coder", name: "JessePollak", identity: { name: "JessePollak", emoji: "⚡" } },
+{ id: "ecommerce", name: "Bankr", identity: { name: "Bankr", emoji: "🏦" } },
       ],
     };
   }
