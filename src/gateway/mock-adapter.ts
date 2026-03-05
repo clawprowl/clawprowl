@@ -226,6 +226,28 @@ function mockConfigData(): Record<string, unknown> {
   return {
     models: {
       providers: {
+        bankr: {
+          baseUrl: "https://llm.bankr.bot",
+          apiKey: REDACTED,
+          api: "openai-completions",
+          models: [
+            { id: "claude-opus-4.6", name: "Claude Opus 4.6", reasoning: true, input: ["text", "image"], contextWindow: 200000, maxTokens: 32768 },
+            { id: "claude-sonnet-4.6", name: "Claude Sonnet 4.6", reasoning: true, input: ["text", "image"], contextWindow: 200000, maxTokens: 16384 },
+            { id: "claude-haiku-4.5-20251001", name: "Claude Haiku 4.5", reasoning: false, input: ["text", "image"], contextWindow: 200000, maxTokens: 8192 },
+            { id: "gemini-2.5-pro", name: "Gemini 2.5 Pro", reasoning: true, input: ["text", "image"], contextWindow: 1048576, maxTokens: 65536 },
+            { id: "gemini-2.5-flash", name: "Gemini 2.5 Flash", reasoning: false, input: ["text", "image"], contextWindow: 1048576, maxTokens: 65535 },
+            { id: "gemini-3-flash", name: "Gemini 3 Flash", reasoning: false, input: ["text", "image"], contextWindow: 1048576, maxTokens: 65535 },
+            { id: "gpt-4o", name: "GPT-4o", reasoning: false, input: ["text", "image"], contextWindow: 128000, maxTokens: 16384 },
+            { id: "gpt-4o-mini", name: "GPT-4o Mini", reasoning: false, input: ["text", "image"], contextWindow: 128000, maxTokens: 16384 },
+            { id: "o3", name: "o3", reasoning: true, input: ["text", "image"], contextWindow: 200000, maxTokens: 100000 },
+            { id: "o4-mini", name: "o4-mini", reasoning: true, input: ["text", "image"], contextWindow: 200000, maxTokens: 100000 },
+            { id: "kimi-k2.5", name: "Kimi K2.5", reasoning: true, input: ["text"], contextWindow: 131072, maxTokens: 16384 },
+            { id: "qwen3-coder", name: "Qwen3 Coder", reasoning: true, input: ["text"], contextWindow: 262144, maxTokens: 16384 },
+            { id: "deepseek-v3", name: "DeepSeek V3", reasoning: false, input: ["text"], contextWindow: 131072, maxTokens: 8192 },
+            { id: "deepseek-r1", name: "DeepSeek R1", reasoning: true, input: ["text"], contextWindow: 131072, maxTokens: 8192 },
+            { id: "gpt-5o", name: "GPT-5o", reasoning: true, input: ["text", "image"], contextWindow: 200000, maxTokens: 32768 },
+          ],
+        },
         anthropic: {
           baseUrl: "https://api.anthropic.com",
           apiKey: REDACTED,
@@ -740,9 +762,13 @@ export class MockAdapter implements GatewayAdapter {
       scope: "global",
       agents: [
         { id: "main", name: "Prowl", default: true, identity: { name: "Prowl", emoji: "🐾" } },
-{ id: "ai-researcher", name: "0xDeployer", identity: { name: "0xDeployer", emoji: "🚀" } },
-{ id: "coder", name: "JessePollak", identity: { name: "JessePollak", emoji: "⚡" } },
-{ id: "ecommerce", name: "Bankr", identity: { name: "Bankr", emoji: "🏦" } },
+        {
+          id: "ai-researcher",
+          name: "0xDeployer",
+          identity: { name: "0xDeployer", emoji: "🚀" },
+        },
+        { id: "coder", name: "JessePollak", identity: { name: "JessePollak", emoji: "⚡" } },
+        { id: "ecommerce", name: "Bankr", identity: { name: "Bankr", emoji: "🏦" } },
       ],
     };
   }
@@ -819,6 +845,15 @@ export class MockAdapter implements GatewayAdapter {
     return {
       updatedAt: Date.now(),
       providers: [
+        {
+          provider: "bankr",
+          displayName: "Bankr LLM Gateway",
+          plan: "credits",
+          windows: [
+            { label: "daily", usedPercent: 30, resetAt: Date.now() + 12 * 3600_000 },
+            { label: "monthly", usedPercent: 15 },
+          ],
+        },
         {
           provider: "anthropic",
           displayName: "Anthropic",
