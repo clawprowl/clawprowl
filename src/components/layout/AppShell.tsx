@@ -1,6 +1,7 @@
 import { useEffect, type ReactNode, type RefObject } from "react";
 import { useTranslation } from "react-i18next";
 import { Outlet } from "react-router-dom";
+import { Users, X } from "lucide-react";
 import { ChatDialog } from "@/components/chat/ChatDialog";
 import { ChatDockBar } from "@/components/chat/ChatDockBar";
 import { RestartBanner } from "@/components/shared/RestartBanner";
@@ -88,15 +89,14 @@ export function AppShell({ children, wsClient, isMobile = false }: AppShellProps
         </main>
         {isMobile ? (
           <>
+            {/* Floating Agents button */}
             <button
               type="button"
               onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-              className="fixed bottom-0 left-1/2 z-20 flex h-10 w-full max-w-xs -translate-x-1/2 items-center justify-center border-t border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-900"
-              aria-label={
-                sidebarCollapsed ? t("sidebar.expandSidebar") : t("sidebar.collapseSidebar")
-              }
+              className="fixed bottom-4 left-4 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-white shadow-lg hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
+              aria-label={sidebarCollapsed ? t("sidebar.expandSidebar") : t("sidebar.collapseSidebar")}
             >
-              <div className="h-1 w-12 rounded-full bg-gray-300 dark:bg-gray-600" />
+              <Users className="h-5 w-5" />
             </button>
             {!sidebarCollapsed && (
               <>
@@ -105,11 +105,23 @@ export function AppShell({ children, wsClient, isMobile = false }: AppShellProps
                   tabIndex={0}
                   onClick={() => setSidebarCollapsed(true)}
                   onKeyDown={(e) => e.key === "Escape" && setSidebarCollapsed(true)}
-                  className="fixed inset-0 z-30 bg-black/30"
+                  className="fixed inset-0 z-30 bg-black/40"
                   aria-label={t("sidebar.closeSidebar")}
                 />
-                <aside className="fixed inset-x-0 bottom-10 top-12 z-40 overflow-hidden rounded-t-xl border-t border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-900">
-                  <Sidebar />
+                <aside className="fixed inset-x-0 bottom-0 top-12 z-40 overflow-hidden border-t border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-900">
+                  <div className="flex items-center justify-between border-b border-gray-100 px-4 py-2 dark:border-gray-800">
+                    <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">Agents</span>
+                    <button
+                      type="button"
+                      onClick={() => setSidebarCollapsed(true)}
+                      className="rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+                  <div className="h-full overflow-auto pb-16">
+                    <Sidebar />
+                  </div>
                 </aside>
               </>
             )}
