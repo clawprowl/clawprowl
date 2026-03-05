@@ -200,11 +200,9 @@ function ViewModeSwitch({
     <div className="ml-6 flex items-center rounded-md bg-gray-100 p-0.5 dark:bg-gray-800">
       {modes.map(({ key, label }) => {
         const isActive = viewMode === key;
-        const disabled = key === "3d" && (!webglAvailable || isMobile);
+        const disabled = key === "3d" && !webglAvailable;
         const title = disabled
-          ? isMobile
-            ? t("topbar.viewMode.mobileNotSupported")
-            : t("topbar.viewMode.webglNotSupported")
+          ? t("topbar.viewMode.webglNotSupported")
           : t("topbar.viewMode.switchTo", { mode: label });
         return (
           <button
