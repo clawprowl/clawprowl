@@ -1,8 +1,9 @@
-import { Maximize2, Send, Square, Paperclip } from "lucide-react";
+import { Maximize2, Send, Square, Paperclip, MessageCircle } from "lucide-react";
 import { useState, useRef, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import TextareaAutosize from "react-textarea-autosize";
 import { useChatDockStore } from "@/store/console-stores/chat-dock-store";
+import { useResponsive } from "@/hooks/useResponsive";
 import { AgentSelector } from "./AgentSelector";
 
 export function ChatDockBar() {
@@ -10,14 +11,15 @@ export function ChatDockBar() {
   const [input, setInput] = useState("");
   const [isComposing, setIsComposing] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const { isMobile } = useResponsive();
 
   const sendMessage = useChatDockStore((s) => s.sendMessage);
   const abort = useChatDockStore((s) => s.abort);
   const isStreaming = useChatDockStore((s) => s.isStreaming);
   const dockExpanded = useChatDockStore((s) => s.dockExpanded);
   const setDockExpanded = useChatDockStore((s) => s.setDockExpanded);
-  const error = useChatDockStore((s) => s.error);
   const clearError = useChatDockStore((s) => s.clearError);
+  const errorMsg = useChatDockStore((s) => s.error);
 
   const canSend = input.trim().length > 0 && !isStreaming;
 
@@ -38,16 +40,31 @@ export function ChatDockBar() {
     [handleSend, isComposing],
   );
 
-  // When dialog is expanded, show only a minimal expand bar
+  // On mobile: show floating button, hide dock bar
+  if (isMobile) {
+    if (dockExpanded) return null;
+    return (
+      <button
+        type="button"
+        onClick={() => setDockExpanded(true)}
+        className="fixed bottom-4 right-4 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg hover:bg-violet-700 transition-colors"
+        title={t("dock.placeholder")}
+      >
+        <MessageCircle className="h-5 w-5" />
+      </button>
+    );
+  }
+
+  // When dialog is expanded, show nothing
   if (dockExpanded) {
     return null;
   }
 
   return (
     <div className="border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
-      {error && (
+      {errorMsg && (
         <div className="flex items-center justify-between bg-red-50 px-3 py-1.5 text-xs text-red-600 dark:bg-red-900/20 dark:text-red-400">
-          <span className="truncate">{error}</span>
+          <span className="truncate">{errorMsg}</span>
           <button
             type="button"
             onClick={clearError}
