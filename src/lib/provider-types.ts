@@ -188,7 +188,7 @@ export const PROVIDER_TYPE_INFO: ProviderTypeMeta[] = [
     defaultBaseUrl: "",
     defaultApi: "github-copilot",
     requiresApiKey: false,
-  }
+  },
   {
     id: "custom",
     name: "Custom",
