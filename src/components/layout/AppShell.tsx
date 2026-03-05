@@ -76,7 +76,7 @@ export function AppShell({ children, wsClient, isMobile = false }: AppShellProps
   const content = children ?? <Outlet />;
 
   return (
-    <div className="flex h-screen w-screen flex-col bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+    <div className="flex h-screen w-screen flex-col overflow-x-hidden bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
       <RestartBanner />
       <TopBar isMobile={isMobile} />
       <ToastContainer />
