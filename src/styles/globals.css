@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --zone-desk: #e8edf5;
+  --zone-meeting: #e0eaf5;
+  --zone-hotDesk: #e5e8f0;
+  --zone-lounge: #e8e5f0;
+  --zone-stroke: #c8d0dc;
+  --zone-label: #64748b;
+  --dot-tooltip-bg: white;
+  --dot-tooltip-stroke: #d1d5db;
+  --dot-tooltip-text: #374151;
+  --svg-link-color: #a78bfa;
+}
+
+.dark {
+  --zone-desk: #1e293b;
+  --zone-meeting: #1a2744;
+  --zone-hotDesk: #1e2433;
+  --zone-lounge: #231e33;
+  --zone-stroke: #334155;
+  --zone-label: #94a3b8;
+  --dot-tooltip-bg: #1e293b;
+  --dot-tooltip-stroke: #475569;
+  --dot-tooltip-text: #e2e8f0;
+  --svg-link-color: #a78bfa;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+/* Agent 状态动画 */
+@keyframes agent-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes agent-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 4px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 14px currentColor;
+  }
+}
+
+@keyframes agent-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes agent-spawn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes agent-despawn {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes thinking-dots {
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes connection-pulse {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Chat dialog slide animations */
+@keyframes chat-slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes chat-slide-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-up {
+  animation: chat-slide-up 200ms ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: chat-slide-down 150ms ease-in forwards;
+}
