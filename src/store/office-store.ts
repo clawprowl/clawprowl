@@ -232,7 +232,7 @@ export const useOfficeStore = create<OfficeStore>()(
     agentCosts: {} as Record<string, number>,
     currentPage: "office" as PageId,
     chatDockHeight: getInitialChatDockHeight(),
-    maxSubAgents: 8,
+    maxSubAgents: 3,
     agentToAgentConfig: { enabled: false, allow: [] } as AgentToAgentConfig,
     runIdMap: new Map(),
     sessionKeyMap: new Map(),
