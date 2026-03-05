@@ -292,7 +292,7 @@ function mockConfigData(): Record<string, unknown> {
     },
     agents: {
       defaults: {
-        subagents: { maxConcurrent: 12, maxSpawnDepth: 2 },
+        subagents: { maxConcurrent: 3, maxSpawnDepth: 1 },
       },
     },
     tools: {
@@ -369,7 +369,7 @@ class SubAgentSimulator {
       if (this.activeSubAgents.size < this.maxConcurrent) {
         this.spawnSubAgent();
       }
-      this.scheduleNextSpawn(randRange(3000, 8000));
+      this.scheduleNextSpawn(randRange(15000, 30000));
     }, delayMs);
   }
 
