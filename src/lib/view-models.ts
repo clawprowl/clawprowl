@@ -1,4 +1,4 @@
-// Domain Mapping: Gateway payload → UI ViewModel 转换
+// Domain Mapping: Gateway payload → UI ViewModel conversion
 
 import type { ChannelInfo, CronTask, SkillInfo, UsageInfo } from "@/gateway/adapter-types";
 import i18n from "@/i18n";

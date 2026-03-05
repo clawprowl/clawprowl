@@ -21,10 +21,10 @@ const rightX = OFFICE.x + halfW + OFFICE.corridorWidth;
 const bottomY = OFFICE.y + halfH + OFFICE.corridorWidth;
 
 export const ZONES = {
-  desk: { x: OFFICE.x, y: OFFICE.y, width: halfW, height: halfH, label: "固定工位区" },
-  meeting: { x: rightX, y: OFFICE.y, width: halfW, height: halfH, label: "会议区" },
-  hotDesk: { x: OFFICE.x, y: bottomY, width: halfW, height: halfH, label: "热工位区" },
-  lounge: { x: rightX, y: bottomY, width: halfW, height: halfH, label: "休息区" },
+  desk: { x: OFFICE.x, y: OFFICE.y, width: halfW, height: halfH, label: "Desk Zone" },
+  meeting: { x: rightX, y: OFFICE.y, width: halfW, height: halfH, label: "Meeting Zone" },
+  hotDesk: { x: OFFICE.x, y: bottomY, width: halfW, height: halfH, label: "Hot Desk Zone" },
+  lounge: { x: rightX, y: bottomY, width: halfW, height: halfH, label: "Lounge Zone" },
 } as const;
 
 // Corridor entrance point: bottom center of the building (main entrance door)
@@ -68,13 +68,13 @@ export const STATUS_COLORS: Record<AgentVisualStatus, string> = {
 };
 
 export const STATUS_LABELS: Record<AgentVisualStatus, string> = {
-  idle: "空闲",
-  thinking: "思考中",
-  tool_calling: "工具调用",
-  speaking: "回复中",
-  spawning: "创建中",
-  error: "错误",
-  offline: "离线",
+  idle: "Idle",
+  thinking: "Thinking",
+  tool_calling: "Tool Calling",
+  speaking: "Replying",
+  spawning: "Spawning",
+  error: "Error",
+  offline: "Offline",
 };
 
 export function getZoneLabel(zone: keyof typeof ZONES): string {
@@ -95,7 +95,7 @@ export const HOT_DESK_GRID_ROWS = 3;
 export const MIN_DESK_WIDTH = 100;
 export const DEFAULT_MAX_SUB_AGENTS = 8;
 
-// 家具尺寸常量 (flat isometric 2D)
+// Furniture size constants (flat isometric 2D)
 export const FURNITURE = {
   desk: { width: 100, height: 60 },
   chair: { size: 30 },
@@ -105,7 +105,7 @@ export const FURNITURE = {
   coffeeCup: { size: 14 },
 } as const;
 
-// 工位单元（Desk + Chair + AgentAvatar）
+// Desk unit (Desk + Chair + AgentAvatar)
 export const DESK_UNIT = {
   width: 140,
   height: 110,
@@ -113,7 +113,7 @@ export const DESK_UNIT = {
   avatarOffsetY: -8,
 } as const;
 
-// Agent 头像
+// Agent avatar
 export const AVATAR = {
   radius: 20,
   selectedRadius: 24,
@@ -121,7 +121,7 @@ export const AVATAR = {
   nameLabelMaxChars: 12,
 } as const;
 
-// 3D 场景常量
+// 3D scene constants
 // SVG 1200×700 maps to 3D building 16×12 world units
 export const SCALE_X_2D_TO_3D = 16 / SVG_WIDTH;
 export const SCALE_Z_2D_TO_3D = 12 / SVG_HEIGHT;

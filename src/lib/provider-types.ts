@@ -140,7 +140,7 @@ export const PROVIDER_TYPE_INFO: ProviderTypeMeta[] = [
   },
   {
     id: "qwen",
-    name: "通义千问 (CN)",
+    name: "Tongyi Qianwen (CN)",
     icon: "🌐",
     defaultBaseUrl: "https://dashscope.aliyuncs.com/compatible-mode/v1",
     defaultApi: "openai-completions",
