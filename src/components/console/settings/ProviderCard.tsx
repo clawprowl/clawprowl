@@ -32,9 +32,13 @@ export function ProviderCard({ providerId, config, onEdit, onDelete }: ProviderC
     <div className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 dark:border-gray-600 dark:bg-gray-700/50">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3 min-w-0">
-          <span className="text-xl" title={meta.name}>
-            {meta.icon}
-          </span>
+          {meta.id === "bankr" ? (
+            <img src="https://docs.bankr.bot/img/logo.svg" alt="Bankr" className="h-6 w-6" title={meta.name} />
+          ) : (
+            <span className="text-xl" title={meta.name}>
+              {meta.icon}
+            </span>
+          )}
           <div className="min-w-0">
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
@@ -64,7 +68,7 @@ export function ProviderCard({ providerId, config, onEdit, onDelete }: ProviderC
               </span>
               {reasoningCount > 0 && (
                 <span
-                  className="flex items-center gap-0.5 text-xs text-purple-600 dark:text-purple-400"
+                  className="flex items-center gap-0.5 text-xs text-violet-600 dark:text-violet-400"
                   title={t("settings.providers.models.reasoning")}
                 >
                   <Brain className="h-3 w-3" />
@@ -114,7 +118,7 @@ export function ProviderCard({ providerId, config, onEdit, onDelete }: ProviderC
           <button
             type="button"
             onClick={onDelete}
-            className="rounded p-1.5 text-gray-500 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/30 dark:hover:text-red-400 transition-colors"
+            className="rounded p-1.5 text-gray-500 hover:bg-purple-100 hover:text-violet-600 dark:hover:bg-violet-900/30 dark:hover:text-violet-400 transition-colors"
             title="Delete"
           >
             <Trash2 className="h-4 w-4" />
