@@ -27,7 +27,7 @@ export function AboutSection() {
 
         <div className="flex justify-center gap-4 pt-2">
           <a
-            href="https://docs.clawprowl.ai"
+            href="https://docs.clawprowl.xyz"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm text-violet-600 hover:underline dark:text-violet-400"
