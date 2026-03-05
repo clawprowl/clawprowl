@@ -183,7 +183,6 @@ function ViewModeSwitch({
   viewMode,
   setViewMode,
   webglAvailable,
-  isMobile,
 }: {
   viewMode: ViewMode;
   setViewMode: (mode: ViewMode) => void;
