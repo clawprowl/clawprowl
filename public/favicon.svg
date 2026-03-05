@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f1d96"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="url(#bg)"/>
+  <!-- Claw mark / prowl symbol -->
+  <g stroke="#e9d5ff" stroke-linecap="round" stroke-width="2" fill="none">
+    <path d="M10 22 Q9 15 13 10"/>
+    <path d="M14 23 Q14 15 16 9"/>
+    <path d="M18 23 Q19 15 19 10"/>
+    <path d="M22 22 Q23 15 22 10"/>
+  </g>
+  <ellipse cx="16" cy="24.5" rx="7" ry="2.5" fill="#c4b5fd" opacity="0.5"/>
+</svg>
