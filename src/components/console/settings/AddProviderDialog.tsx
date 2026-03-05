@@ -94,7 +94,11 @@ export function AddProviderDialog({ open, existingIds, onSave, onCancel }: AddPr
                   onClick={() => handleSelectType(meta)}
                   className="flex flex-col items-center gap-2 rounded-xl border border-gray-200 px-4 py-5 text-center hover:border-blue-400 hover:bg-blue-50/80 dark:border-gray-600 dark:hover:border-blue-500 dark:hover:bg-blue-900/20 transition-all"
                 >
-                  <span className="text-2xl">{meta.icon}</span>
+                  {meta.id === "bankr" ? (
+                    <img src="https://docs.bankr.bot/img/logo.svg" alt="Bankr" className="h-8 w-8" />
+                  ) : (
+                    <span className="text-2xl">{meta.icon}</span>
+                  )}
                   <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
                     {meta.name}
                   </span>
