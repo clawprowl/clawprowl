@@ -1,6 +1,7 @@
 # ClawProwl
 
-> [@ClawProwl](https://x.com/clawprowl).
+> [@ClawProwl](https://x.com/clawprowl) OFFICIAL X
+>
 > Visualize AI agent collaboration as a real-time digital twin office.
 
 **ClawProwl** is the visual monitoring and management frontend for the [ClawProwl](https://github.com/clawprowl/clawprowl) Multi-Agent system. It renders Agent work status, collaboration links, tool calls, and resource consumption through an isometric-style virtual office scene, along with a full-featured console for system management.
