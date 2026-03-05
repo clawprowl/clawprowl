@@ -78,6 +78,15 @@ export interface ProviderTypeMeta {
 
 export const PROVIDER_TYPE_INFO: ProviderTypeMeta[] = [
   {
+    id: "bankr",
+    name: "Bankr LLM Gateway",
+    icon: "🏦",
+    defaultBaseUrl: "https://llm.bankr.bot",
+    defaultApi: "openai-completions",
+    requiresApiKey: true,
+    placeholder: "bk_...",
+  },
+  {
     id: "anthropic",
     name: "Anthropic",
     icon: "🤖",
@@ -179,7 +188,7 @@ export const PROVIDER_TYPE_INFO: ProviderTypeMeta[] = [
     defaultBaseUrl: "",
     defaultApi: "github-copilot",
     requiresApiKey: false,
-  },
+  }
   {
     id: "custom",
     name: "Custom",
@@ -213,6 +222,7 @@ export function inferProviderType(
     if (baseUrl.includes("dashscope.aliyuncs.com")) return PROVIDER_TYPE_INFO[6];
     if (baseUrl.includes("siliconflow.cn")) return PROVIDER_TYPE_INFO[7];
     if (baseUrl.includes("localhost:11434")) return PROVIDER_TYPE_INFO[8];
+    if (baseUrl.includes("bankr.bot")) return PROVIDER_TYPE_INFO.find((p) => p.id === "bankr")!;
   }
 
   return PROVIDER_TYPE_INFO[PROVIDER_TYPE_INFO.length - 1];
