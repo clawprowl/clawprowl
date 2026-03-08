@@ -252,12 +252,12 @@ function mockConfigData(): Record<string, unknown> {
             // Qwen (Alibaba)
             { id: "qwen3-coder", name: "Qwen3 Coder", reasoning: true, input: ["text"], contextWindow: 131072, maxTokens: 16384 },
             // --- NEW models (announced 2026-03-08) ---
-            { id: "gpt-5.4",       name: "GPT-5.4",       reasoning: true,  input: ["text"], contextWindow: 262144, maxTokens: 32768 },
-            { id: "grok-4.1-fast", name: "Grok 4.1 Fast", reasoning: true,  input: ["text"], contextWindow: 131072, maxTokens: 16384 },
-            { id: "deepseek-v3.2", name: "DeepSeek V3.2", reasoning: false, input: ["text"], contextWindow: 131072, maxTokens: 8192  },
-            { id: "qwen3.5-plus",  name: "Qwen 3.5 Plus",  reasoning: true,  input: ["text"], contextWindow: 131072, maxTokens: 16384 },
-            { id: "qwen3.5-flash", name: "Qwen 3.5 Flash", reasoning: false, input: ["text"], contextWindow: 131072, maxTokens: 8192  },
-            { id: "minimax-m2.5",  name: "MiniMax M2.5",   reasoning: false, input: ["text", "image"], contextWindow: 1000000, maxTokens: 16384 },
+            { id: "gpt-5.4",       name: "GPT-5.4",       reasoning: true,  input: ["text"], contextWindow: 262144, maxTokens: 32768, isNew: true },
+            { id: "grok-4.1-fast", name: "Grok 4.1 Fast", reasoning: true,  input: ["text"], contextWindow: 131072, maxTokens: 16384, isNew: true },
+            { id: "deepseek-v3.2", name: "DeepSeek V3.2", reasoning: false, input: ["text"], contextWindow: 131072, maxTokens: 8192 , isNew: true },
+            { id: "qwen3.5-plus",  name: "Qwen 3.5 Plus",  reasoning: true,  input: ["text"], contextWindow: 131072, maxTokens: 16384, isNew: true },
+            { id: "qwen3.5-flash", name: "Qwen 3.5 Flash", reasoning: false, input: ["text"], contextWindow: 131072, maxTokens: 8192 , isNew: true },
+            { id: "minimax-m2.5",  name: "MiniMax M2.5",   reasoning: false, input: ["text", "image"], contextWindow: 1000000, maxTokens: 16384, isNew: true },
           ],
         },
         anthropic: {
@@ -909,12 +909,12 @@ export class MockAdapter implements GatewayAdapter {
       // Qwen
       { id: "qwen3-coder",        name: "Qwen3 Coder",       provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 131072 },
       // NEW — 2026-03-08
-      { id: "gpt-5.4",            name: "GPT-5.4",           provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 262144 },
-      { id: "grok-4.1-fast",      name: "Grok 4.1 Fast",     provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 131072 },
-      { id: "deepseek-v3.2",      name: "DeepSeek V3.2",     provider: "bankr", reasoning: false, input: ["text"], contextWindow: 131072 },
-      { id: "qwen3.5-plus",       name: "Qwen 3.5 Plus",     provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 131072 },
-      { id: "qwen3.5-flash",      name: "Qwen 3.5 Flash",    provider: "bankr", reasoning: false, input: ["text"], contextWindow: 131072 },
-      { id: "minimax-m2.5",       name: "MiniMax M2.5",      provider: "bankr", reasoning: false, input: ["text", "image"], contextWindow: 1000000 },
+      { id: "gpt-5.4",            name: "GPT-5.4",           provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 262144, isNew: true },
+      { id: "grok-4.1-fast",      name: "Grok 4.1 Fast",     provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 131072, isNew: true },
+      { id: "deepseek-v3.2",      name: "DeepSeek V3.2",     provider: "bankr", reasoning: false, input: ["text"], contextWindow: 131072, isNew: true },
+      { id: "qwen3.5-plus",       name: "Qwen 3.5 Plus",     provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 131072, isNew: true },
+      { id: "qwen3.5-flash",      name: "Qwen 3.5 Flash",    provider: "bankr", reasoning: false, input: ["text"], contextWindow: 131072, isNew: true },
+      { id: "minimax-m2.5",       name: "MiniMax M2.5",      provider: "bankr", reasoning: false, input: ["text", "image"], contextWindow: 1000000, isNew: true },
     ];
   }
 
