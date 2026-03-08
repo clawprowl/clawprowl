@@ -63,6 +63,11 @@ function ModelForm({ model, onChange, onRemove, defaultCollapsed = false }: Mode
         >
           {collapsed ? <ChevronDown className="h-4 w-4" /> : <ChevronUp className="h-4 w-4" />}
           <span className="truncate max-w-xs">{label}</span>
+          {model.isNew && (
+            <span className="inline-flex items-center rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+              New
+            </span>
+          )}
           {model.reasoning && (
             <span title="reasoning">
               <Brain className="h-3.5 w-3.5 text-purple-500" />
