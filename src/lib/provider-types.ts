@@ -52,6 +52,8 @@ export interface ModelDefinitionConfig {
   maxTokens?: number;
   headers?: Record<string, string>;
   compat?: ModelCompatConfig;
+  /** Marks a model as newly added — renders a "New" badge in the UI */
+  isNew?: boolean;
 }
 
 export function createDefaultModel(): ModelDefinitionConfig {
@@ -250,6 +252,7 @@ export function parseModels(raw: unknown): ModelDefinitionConfig[] {
     contextWindow: typeof m.contextWindow === "number" ? m.contextWindow : undefined,
     maxTokens: typeof m.maxTokens === "number" ? m.maxTokens : undefined,
     compat: m.compat as ModelCompatConfig | undefined,
+    isNew: m.isNew === true,
   }));
 }
 
