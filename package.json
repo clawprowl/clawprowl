@@ -1,6 +1,6 @@
 {
   "name": "@clawprowl/clawprowl",
-  "version": "2026.3.4",
+  "version": "2026.3.5",
   "description": "Visual monitoring & management frontend for ClawProwl Multi-Agent system",
   "keywords": [
     "ai-agents",
