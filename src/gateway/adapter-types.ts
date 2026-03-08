@@ -347,6 +347,8 @@ export interface ModelCatalogEntry {
   contextWindow?: number;
   reasoning?: boolean;
   input?: Array<"text" | "image">;
+  /** Marks a model as newly added — renders a "New" badge in the UI */
+  isNew?: boolean;
 }
 
 export interface UpdateRunResult {
