@@ -886,63 +886,35 @@ export class MockAdapter implements GatewayAdapter {
   }
 
   async modelsList(): Promise<ModelCatalogEntry[]> {
+    // Mirrors mockConfigData() bankr models — docs.bankr.bot/llm-gateway/models + 2026-03-08 additions
     return [
-      {
-        id: "claude-sonnet-4-20250514",
-        name: "Claude Sonnet 4",
-        provider: "anthropic",
-        reasoning: true,
-        input: ["text", "image"],
-        contextWindow: 200000,
-      },
-      {
-        id: "claude-opus-4-20250514",
-        name: "Claude Opus 4",
-        provider: "anthropic",
-        reasoning: true,
-        input: ["text", "image"],
-        contextWindow: 200000,
-      },
-      {
-        id: "gpt-4o",
-        name: "GPT-4o",
-        provider: "openai",
-        reasoning: false,
-        input: ["text", "image"],
-        contextWindow: 128000,
-      },
-      {
-        id: "o3",
-        name: "o3",
-        provider: "openai",
-        reasoning: true,
-        input: ["text", "image"],
-        contextWindow: 200000,
-      },
-      {
-        id: "gpt-5.3-codex",
-        name: "gpt-5.3-codex",
-        provider: "openai-codex",
-        reasoning: true,
-        input: ["text"],
-        contextWindow: 1048576,
-      },
-      {
-        id: "gpt-5.3-codex-spark",
-        name: "gpt-5.3-codex-spark",
-        provider: "openai-codex",
-        reasoning: true,
-        input: ["text"],
-        contextWindow: 1048576,
-      },
-      {
-        id: "gpt-5.1-codex",
-        name: "gpt-5.1-codex",
-        provider: "openai-codex",
-        reasoning: true,
-        input: ["text"],
-        contextWindow: 200000,
-      },
+      // Anthropic
+      { id: "claude-opus-4.6",    name: "Claude Opus 4.6",   provider: "bankr", reasoning: true,  input: ["text", "image"], contextWindow: 200000  },
+      { id: "claude-opus-4.5",    name: "Claude Opus 4.5",   provider: "bankr", reasoning: true,  input: ["text", "image"], contextWindow: 200000  },
+      { id: "claude-sonnet-4.6",  name: "Claude Sonnet 4.6", provider: "bankr", reasoning: true,  input: ["text", "image"], contextWindow: 200000  },
+      { id: "claude-sonnet-4.5",  name: "Claude Sonnet 4.5", provider: "bankr", reasoning: false, input: ["text", "image"], contextWindow: 200000  },
+      { id: "claude-haiku-4.5",   name: "Claude Haiku 4.5",  provider: "bankr", reasoning: false, input: ["text", "image"], contextWindow: 200000  },
+      // Google
+      { id: "gemini-3-pro",       name: "Gemini 3 Pro",      provider: "bankr", reasoning: true,  input: ["text", "image"], contextWindow: 2097152 },
+      { id: "gemini-3-flash",     name: "Gemini 3 Flash",    provider: "bankr", reasoning: false, input: ["text", "image"], contextWindow: 1048576 },
+      { id: "gemini-2.5-pro",     name: "Gemini 2.5 Pro",    provider: "bankr", reasoning: true,  input: ["text", "image"], contextWindow: 1048576 },
+      { id: "gemini-2.5-flash",   name: "Gemini 2.5 Flash",  provider: "bankr", reasoning: false, input: ["text", "image"], contextWindow: 1048576 },
+      // OpenAI
+      { id: "gpt-5.2",            name: "GPT-5.2",           provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 262144 },
+      { id: "gpt-5.2-codex",      name: "GPT-5.2 Codex",     provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 262144 },
+      { id: "gpt-5-mini",         name: "GPT-5 Mini",        provider: "bankr", reasoning: false, input: ["text"], contextWindow: 128000 },
+      { id: "gpt-5-nano",         name: "GPT-5 Nano",        provider: "bankr", reasoning: false, input: ["text"], contextWindow: 128000 },
+      // Kimi
+      { id: "kimi-k2.5",          name: "Kimi K2.5",         provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 131072 },
+      // Qwen
+      { id: "qwen3-coder",        name: "Qwen3 Coder",       provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 131072 },
+      // NEW — 2026-03-08
+      { id: "gpt-5.4",            name: "GPT-5.4",           provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 262144 },
+      { id: "grok-4.1-fast",      name: "Grok 4.1 Fast",     provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 131072 },
+      { id: "deepseek-v3.2",      name: "DeepSeek V3.2",     provider: "bankr", reasoning: false, input: ["text"], contextWindow: 131072 },
+      { id: "qwen3.5-plus",       name: "Qwen 3.5 Plus",     provider: "bankr", reasoning: true,  input: ["text"], contextWindow: 131072 },
+      { id: "qwen3.5-flash",      name: "Qwen 3.5 Flash",    provider: "bankr", reasoning: false, input: ["text"], contextWindow: 131072 },
+      { id: "minimax-m2.5",       name: "MiniMax M2.5",      provider: "bankr", reasoning: false, input: ["text", "image"], contextWindow: 1000000 },
     ];
   }
 
