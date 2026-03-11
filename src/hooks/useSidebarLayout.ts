@@ -15,6 +15,7 @@ const DEFAULT_STATE: SidebarLayoutState = {
   agents: { collapsed: false, height: null },
   subAgents: { collapsed: false, height: null },
   detail: { collapsed: false, height: null },
+  bags: { collapsed: false, height: null },
   timeline: { collapsed: false, height: null },
 };
 
