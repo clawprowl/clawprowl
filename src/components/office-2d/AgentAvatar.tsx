@@ -125,7 +125,18 @@ export const AgentAvatar = memo(function AgentAvatar({ agent }: AgentAvatarProps
       </defs>
       <circle r={r - 2} fill={isDark ? "#1e293b" : "#f8fafc"} />
       <g clipPath={`url(#${clipId})`}>
-        <AvatarFace data={avatarData} size={r * 2 - 4} />
+        {agent.avatarUrl ? (
+          <image
+            href={agent.avatarUrl}
+            x={-(r - 2)}
+            y={-(r - 2)}
+            width={(r - 2) * 2}
+            height={(r - 2) * 2}
+            preserveAspectRatio="xMidYMid slice"
+          />
+        ) : (
+          <AvatarFace data={avatarData} size={r * 2 - 4} />
+        )}
       </g>
 
       {/* Sub-agent badge */}
