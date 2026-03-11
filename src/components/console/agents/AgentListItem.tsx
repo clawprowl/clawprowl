@@ -12,7 +12,7 @@ export function AgentListItem({ agent, isSelected, isDefault, onSelect }: AgentL
   const { t } = useTranslation("console");
   const displayName = agent.identity?.name ?? agent.name ?? agent.id;
   const emoji = agent.identity?.emoji;
-  const avatarUrl = agent.identity?.avatarUrl;
+  const avatarUrl = agent.identity?.avatarUrl ?? agent.identity?.avatar;
 
   return (
     <button
