@@ -89,9 +89,9 @@ function createVisualAgent(
   isSubAgent: boolean,
   occupied: Set<string>,
   confirmed = true,
+  avatarUrl?: string,
 ): VisualAgent {
   if (!confirmed) {
-    // Unconfirmed agent: place at corridor entrance, not assigned to any zone yet
     return {
       id,
       name,
@@ -111,6 +111,7 @@ function createVisualAgent(
       originalPosition: null,
       movement: null,
       confirmed: false,
+      avatarUrl,
     };
   }
   const position = allocatePosition(id, isSubAgent, occupied);
@@ -133,6 +134,7 @@ function createVisualAgent(
     originalPosition: null,
     movement: null,
     confirmed: true,
+    avatarUrl,
   };
 }
 
@@ -596,7 +598,8 @@ export const useOfficeStore = create<OfficeStore>()(
         const occupied = new Set<string>();
         for (const summary of summaries) {
           const name = summary.identity?.name ?? summary.name ?? summary.id;
-          const agent = createVisualAgent(summary.id, name, false, occupied);
+          const avatarUrl = summary.identity?.avatarUrl;
+          const agent = createVisualAgent(summary.id, name, false, occupied, true, avatarUrl);
           occupied.add(positionKey(agent.position));
           state.agents.set(summary.id, agent);
         }
