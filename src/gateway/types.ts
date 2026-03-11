@@ -153,6 +153,7 @@ export interface VisualAgent {
   originalPosition: { x: number; y: number } | null;
   movement: MovementState | null;
   confirmed: boolean;
+  avatarUrl?: string;
 }
 
 export interface ToolCallRecord {
