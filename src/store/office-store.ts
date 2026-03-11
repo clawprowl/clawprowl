@@ -598,7 +598,9 @@ export const useOfficeStore = create<OfficeStore>()(
         const occupied = new Set<string>();
         for (const summary of summaries) {
           const name = summary.identity?.name ?? summary.name ?? summary.id;
-          const avatarUrl = summary.identity?.avatarUrl;
+          const KNOWN_AVATARS: Record<string, string> = { PROWL: "https://pbs.twimg.com/profile_images/2029487683278708736/JqpyzvWW_400x400.jpg", "0xDeployer": "https://pbs.twimg.com/profile_images/1816688728951476224/PkVN69ln_400x400.jpg", FINN: "https://pbs.twimg.com/profile_images/2003998762503745536/jDpf21Ig_400x400.jpg", BAGS: "https://pbs.twimg.com/profile_images/2029807842870579201/TAhshEh2_400x400.jpg" };
+          const _name = summary.identity?.name ?? summary.name ?? summary.id;
+          const avatarUrl = summary.identity?.avatarUrl ?? (summary.identity as { avatar?: string })?.avatar ?? KNOWN_AVATARS[_name];
           const agent = createVisualAgent(summary.id, name, false, occupied, true, avatarUrl);
           occupied.add(positionKey(agent.position));
           state.agents.set(summary.id, agent);
