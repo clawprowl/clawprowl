@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { AgentDetailPanel } from "@/components/panels/AgentDetailPanel";
+import { BagsAnalyticsPanel } from "@/components/panels/BagsAnalyticsPanel";
 import { EventTimeline } from "@/components/panels/EventTimeline";
 import { MetricsPanel } from "@/components/panels/MetricsPanel";
 import { SubAgentPanel } from "@/components/panels/SubAgentPanel";
@@ -76,6 +77,7 @@ export function Sidebar() {
   const subAgentsSection = getSection("subAgents");
   const detailSection = getSection("detail");
   const timelineSection = getSection("timeline");
+  const bagsSection = getSection("bags");
 
   return (
     <aside className="flex w-80 flex-col border-l border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
@@ -216,6 +218,20 @@ export function Sidebar() {
           <AgentDetailPanel />
         </CollapsibleSection>
       )}
+
+      {/* Bags Analytics */}
+      <CollapsibleSection
+        id="bags"
+        title="BAGS · PROWL Analytics"
+        collapsed={bagsSection.collapsed}
+        onToggle={() => toggleSection("bags")}
+        height={bagsSection.height}
+        onHeightChange={(h) => setSectionHeight("bags", h)}
+        minHeight={120}
+        maxHeight={500}
+      >
+        <BagsAnalyticsPanel />
+      </CollapsibleSection>
 
       {/* Event timeline */}
       <CollapsibleSection
