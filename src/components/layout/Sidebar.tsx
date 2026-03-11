@@ -156,7 +156,11 @@ export function Sidebar() {
                 selectedAgentId === agent.id ? "bg-violet-50 dark:bg-blue-950" : ""
               }`}
             >
-              <SvgAvatar agentId={agent.id} size={24} />
+              {agent.avatarUrl ? (
+                <img src={agent.avatarUrl} alt={agent.name} className="h-6 w-6 rounded-full object-cover shrink-0" />
+              ) : (
+                <SvgAvatar agentId={agent.id} size={24} />
+              )}
               <div className="min-w-0 flex-1">
                 <div className="truncate text-xs font-medium text-gray-800 dark:text-gray-200">
                   {agent.name}
