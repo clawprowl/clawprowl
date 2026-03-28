@@ -1,7 +1,5 @@
 # ClawProwl — Agent Development Guide
 
-> [中文版](./AGENTS.zh.md)
-
 This document provides context and rules for AI coding assistants (Codex, Claude, Cursor Agent, etc.) working on this project.
 
 ## Project Overview
