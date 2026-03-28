@@ -780,7 +780,7 @@ export class MockAdapter implements GatewayAdapter {
           identity: { name: "0xDeployer", emoji: "🚀", avatarUrl: "https://pbs.twimg.com/profile_images/1816688728951476224/PkVN69ln_400x400.jpg" },
         },
         { id: "coder", name: "FINN", identity: { name: "FINN", emoji: "⚡", avatarUrl: "https://pbs.twimg.com/profile_images/2003998762503745536/jDpf21Ig_400x400.jpg" } },
-        { id: "ecommerce", name: "BAGS", identity: { name: "BAGS", emoji: "🏦", avatarUrl: "https://pbs.twimg.com/profile_images/2029807842870579201/TAhshEh2_400x400.jpg" } },
+        { id: "ecommerce", name: "BANKR", identity: { name: "BANKR", emoji: "🏦", avatarUrl: "https://pbs.twimg.com/profile_images/1951545493936545792/AriqgxQN_400x400.jpg" } },
       ],
     };
   }
