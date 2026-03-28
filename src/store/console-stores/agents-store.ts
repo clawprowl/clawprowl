@@ -158,7 +158,7 @@ export const useAgentsStore = create<AgentsStoreState>((set, get) => ({
         PROWL: "https://pbs.twimg.com/profile_images/2029487683278708736/JqpyzvWW_400x400.jpg",
         "0xDeployer": "https://pbs.twimg.com/profile_images/1816688728951476224/PkVN69ln_400x400.jpg",
         FINN: "https://pbs.twimg.com/profile_images/2003998762503745536/jDpf21Ig_400x400.jpg",
-        BAGS: "https://pbs.twimg.com/profile_images/2029807842870579201/TAhshEh2_400x400.jpg",
+        BANKR: "https://pbs.twimg.com/profile_images/1951545493936545792/AriqgxQN_400x400.jpg",
       };
 
       const agents = result.agents.map((a) => {
