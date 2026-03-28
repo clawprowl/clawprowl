@@ -8,7 +8,7 @@
 
 **Core Metaphor:** Agent = Digital Employee | Office = Agent Runtime | Desk = Session | Meeting Pod = Collaboration Context
 
----
+-----
 
 ## Features
 
